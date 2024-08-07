@@ -8,7 +8,7 @@ timer = [0,0,0,0];
 var interval;
 var timerRunning = false;
 
-// Adiciona zero inicial aos números <= 9 (apenas para estética):
+
 function leadingZero(time) {
     if(time <= 9){
         time = "0" + time;
@@ -16,7 +16,7 @@ function leadingZero(time) {
     return time;
 }
 
-// Executa um timer padrão de minuto / segundo / centésimos:
+
 function runTimer() {
     let currentTime = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2]);
     theTimer.innerHTML = currentTime;
@@ -27,7 +27,7 @@ function runTimer() {
     timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000));
 }
 
-// Verifica se texto digitado com o fornecido na página:
+
 function spellCheck() { 
     let textEntered = testArea.value;
     let originTextMatch = originText.substring(0, textEntered.length);
@@ -44,7 +44,7 @@ function spellCheck() {
     }
 }
 
-// Inicia o cronômetro:
+
 function start(){
    let textEnteredLength = testArea.value.length;
     if (textEnteredLength === 0 && !timerRunning) {
@@ -53,7 +53,7 @@ function start(){
     }
 }
 
-// Função de recomeçar:
+
 function reset() {
     clearInterval(interval);
     interval = null;
@@ -65,7 +65,7 @@ function reset() {
     testWrapper.style.borderColor = "grey";
 }
 
-// Listeners de eventos para entrada de teclado e o botão de recomeçar:
+
 testArea.addEventListener("keypress", start, false);
 testArea.addEventListener("keyup", spellCheck, false);
 resetButton.addEventListener("click", reset, false);
